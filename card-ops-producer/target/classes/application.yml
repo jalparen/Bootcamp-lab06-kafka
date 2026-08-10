@@ -1,0 +1,46 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: card-ops-producer
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+kafka:
+  topic: bank.card.replacements.v1
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092}
+  schema-registry-url: ${SCHEMA_REGISTRY_URL:http://localhost:8081}
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      kafkaPublisher:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+  retry:
+    instances:
+      kafkaPublisher:
+        maxAttempts: 3
+        waitDuration: 1s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  level:
+    root: INFO
+    org.apache.kafka: INFO

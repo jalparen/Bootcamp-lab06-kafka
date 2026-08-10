@@ -1,0 +1,17 @@
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\policy\FirstTimePolicy.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\CardOpsProducerApplication.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\policy\AttemptPolicy.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\infrastructure\redis\RedisAttemptStateRepository.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\infrastructure\decorator\ResilientPublisher.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\port\EventPublisher.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\target\generated-sources\avro\com\bank\events\CardReplacementEvent.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\policy\AttemptPolicyOrchestrator.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\config\KafkaProducerConfig.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\service\EventService.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\mapper\EventMapper.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\port\AttemptStateRepository.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\infrastructure\kafka\KafkaEventPublisher.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\config\RedisConfig.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\api\CardReplacementController.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\api\dto\CardReplacementRequestDto.java
+C:\Users\jalparen\OneDrive - NTT DATA EMEAL\Documentos\Bootcamp\lab06\card-ops-producer\src\main\java\com\bank\card_ops_producer\domain\policy\SecondTimePolicy.java

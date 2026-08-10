@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "lab06-bankops",
+    "name": "Lab06 - BankOps",
+    "description": "Gestión de Reemplazo de Tarjetas Bancarias (EDA + Kafka + Avro + Redis + Mongo)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "card-ops-producer",
+      "item": [
+        {
+          "name": "Intentar 1 - Registrar reemplazo de tarjeta (REQ-1001)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "http://localhost:8085/api/card-replacements",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"REQ-1001\",\n  \"customerId\": \"CUST-8899\",\n  \"cardPANMasked\": \"4111********1111\",\n  \"reasonCode\": \"LOST\",\n  \"priority\": \"HIGH\",\n  \"branchCode\": \"BR-001\",\n  \"deliveryAddress\": \"Av. Javier Prado 1234, Lima\",\n  \"correlationId\": \"CORR-001\",\n  \"status\": \"REQUESTED\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Intentar 2 - Reintento (mismo requestId)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "http://localhost:8085/api/card-replacements",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"REQ-1001\",\n  \"customerId\": \"CUST-8899\",\n  \"cardPANMasked\": \"4111********1111\",\n  \"reasonCode\": \"LOST\",\n  \"priority\": \"HIGH\",\n  \"branchCode\": \"BR-001\",\n  \"deliveryAddress\": \"Av. Javier Prado 1234, Lima\",\n  \"correlationId\": \"CORR-001\",\n  \"status\": \"REQUESTED\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Evento inválido (sin requestId) -> DLT",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "http://localhost:8085/api/card-replacements",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": \"CUST-0000\",\n  \"cardPANMasked\": \"4111********0000\",\n  \"reasonCode\": \"LOST\",\n  \"priority\": \"HIGH\",\n  \"branchCode\": \"BR-001\",\n  \"deliveryAddress\": \"Av. Sin Nombre 000\",\n  \"correlationId\": \"CORR-000\",\n  \"status\": \"REQUESTED\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "dispatch-consumer",
+      "item": [
+        {
+          "name": "Consultar evento por requestId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8086/api/events?requestId=REQ-1001",
+              "query": [
+                { "key": "requestId", "value": "REQ-1001" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Healthcheck",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8086/api/health"
+          }
+        }
+      ]
+    }
+  ]
+}
